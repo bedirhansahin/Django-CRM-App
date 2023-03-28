@@ -1,4 +1,24 @@
 {% extends 'partials/_base.html' %}
 {% block content %}
     <h1>Register</h1>
+    <br>
+
+    <div class="col-md-6 offset-md-3">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div id="alert" class="alert alert-warning">
+                Form errors
+                {% for field in form %}
+                    {% if field.errors %}
+                        {{ field.errors }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-secondary">Register</button>
+        </form>
+    </div>
 {% endblock %}
