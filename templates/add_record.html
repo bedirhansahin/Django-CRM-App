@@ -1,0 +1,15 @@
+{% extends 'partials/_base.html' %}
+{% block content %}
+    <h1 class="text-center">Register</h1>
+    <br>
+    <div class="col-md-6 offset-md-3">
+        <form method="POST" action="{% url 'add_record' %}">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-success float-end">Add</button>
+            </button>
+        </form>
+    </div>
+{% endblock %}

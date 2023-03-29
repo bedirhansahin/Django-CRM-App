@@ -1,0 +1,23 @@
+{% extends 'partials/_base.html' %}
+{% block content %}
+    <div class="d-flex justify-content-center">
+        <div class="card border-info mb-3" style="max-width: 24rem;">
+            <div class="card-header">Customer Info</div>
+            <div class="card-body text-info">
+                <h5 class="card-title">{{ customer_record.first_name }} {{ customer_record.last_name }}
+                    #{{ customer_record.id }}</h5>
+                <p class="card-text"><strong>Email:</strong> {{ customer_record.email }}</p>
+                <p class="card-text"><strong>Country:</strong> {{ customer_record.country }}</p>
+                <p class="card-text"><strong>City:</strong> {{ customer_record.city }}</p>
+                <p class="card-text"><strong>Zipcode:</strong> {{ customer_record.zipcode }}</p>
+                <p class="card-text"><strong>Phone:</strong> {{ customer_record.phone }}</p>
+                <p class="card-text"><strong>Created Date:</strong> {{ customer_record.created_date }}</p>
+                <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger float-right mx-1">Delete</a>
+                <a href="{% url 'update_record' customer_record.id %}" class="btn btn-primary float-right mx-1">Update</a>
+
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-secondary float-right" style="margin-right: 420px">Back</a>
+
+{% endblock %}
